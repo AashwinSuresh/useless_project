@@ -1,5 +1,12 @@
 import logging
+import sys
 from pathlib import Path
+
+# Ensure backend directory is on sys.path so 'app' package resolves in all deployment environments (including Vercel)
+BACKEND_DIR = Path(__file__).resolve().parent.parent
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -38,10 +45,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
 LEGACY_INDEX = PROJECT_ROOT / "index.html"
 
-# Mount frontend static directory if exists
+# Mount frontend static directories if they exist
 frontend_src = FRONTEND_DIR / "src"
 if frontend_src.is_dir():
     app.mount("/src", StaticFiles(directory=str(frontend_src)), name="frontend_src")
+if FRONTEND_DIR.is_dir():
+    app.mount("/frontend", StaticFiles(directory=str(FRONTEND_DIR)), name="frontend_dir")
 
 
 @app.get("/api/health", tags=["Health"])

@@ -37,8 +37,7 @@ class Settings:
     DEFAULT_GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     CANDIDATE_GEMINI_MODELS: List[str] = [
         "gemini-2.5-flash",
-        "gemini-3.6-flash",
-        "gemini-1.5-flash"
+        "gemini-3.6-flash"
     ]
 
     # CORS settings

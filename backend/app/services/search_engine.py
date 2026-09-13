@@ -5,9 +5,9 @@ from app.schemas.search import SearchResult
 TIER_METADATA = [
     {"tier": 1, "title": "Mundane Reality", "default_absurdity": 0.12},
     {"tier": 2, "title": "Mild Paranoia", "default_absurdity": 0.35},
-    {"tier": 3, "title": "Overanalyzed Vortex", "default_absurdity": 0.58},
-    {"tier": 4, "title": "Conspiracy Grade", "default_absurdity": 0.81},
-    {"tier": 5, "title": "Multiverse Catastrophe", "default_absurdity": 0.96},
+    {"tier": 3, "title": "The Overthought Spiral", "default_absurdity": 0.58},
+    {"tier": 4, "title": "Suspiciously Specific Plot", "default_absurdity": 0.81},
+    {"tier": 5, "title": "Completely Unhinged", "default_absurdity": 0.96},
 ]
 
 
@@ -143,36 +143,36 @@ def generate_offline_fallback(query: str) -> Dict[str, Any]:
 
     if any(k in q_lower for k in ["'k'", " k ", " k", "text", "message", "reply", "ghost", "left on read", "say okay", "okay", "ok"]):
         results = [
-            {"text": "They were rushing into an elevator or their battery dropped to 1%.", "probability": 42, "absurdity": 0.12},
-            {"text": "They found 'ok' too formal and wanted to convey breezy, unbothered minimalism.", "probability": 28, "absurdity": 0.34},
-            {"text": "They typed a thoughtful 3-paragraph reply, panicked over vulnerability, deleted it, and sent 'k'.", "probability": 18, "absurdity": 0.59},
-            {"text": "Their phone was intercepted by foreign intelligence operatives trained only in single-consonant reconnaissance.", "probability": 8, "absurdity": 0.82},
-            {"text": "You have slipped into a parallel universe where vowels have been banned by an authoritarian algorithm.", "probability": 4, "absurdity": 0.98},
+            {"text": "They were holding two lukewarm coffees and a grocery bag with a snapped handle, typed with only their chin, and immediately forgot you exist.", "probability": 42, "absurdity": 0.12},
+            {"text": "They drafted a warm 3-sentence reply, noticed it contained an exclamation mark, felt sickeningly vulnerable, deleted everything, and sent a single monosyllable to re-establish emotional dominance.", "probability": 28, "absurdity": 0.35},
+            {"text": "They read a LinkedIn article in 2017 about 'executive presence' and have spent the last seven years slowly incinerating their personal relationships one stone-cold reply at a time.", "probability": 18, "absurdity": 0.59},
+            {"text": "They are auditioning for the role of a disillusioned Swedish detective in a bleak Nordic noir series and are method-acting emotional detachment across all incoming text messages.", "probability": 8, "absurdity": 0.82},
+            {"text": "Their phone was momentarily commandeered by an eccentric raccoon that lives behind their garage and only knows how to accept invitations to social gatherings it has no intention of attending.", "probability": 4, "absurdity": 0.97},
         ]
-        rec = "DO NOTHING. (Or draft a 14-page handwritten letter via carrier pigeon requesting punctuation clarification)."
-        conf = "99.4% Suspiciously High"
+        rec = "DO NOTHING. In fact, do less than nothing. Leave your phone face-down on a wooden coaster, stare blankly at a floor lamp for 42 minutes, and let the awkwardness ripen into a fine vintage."
+        conf = "104% Unearned Certainty"
 
     elif any(k in q_lower for k in ["boss", "manager", "work", "email", "slack", "fired", "meeting", "period"]):
         results = [
-            {"text": "They use standard punctuation because they belong to an older generation that fears emojis.", "probability": 44, "absurdity": 0.15},
-            {"text": "They were typing between back-to-back syncs and didn't register the passive-aggressive tone.", "probability": 26, "absurdity": 0.36},
-            {"text": "They noticed you spent 17 minutes browsing mechanical keyboard forums on the corporate network.", "probability": 16, "absurdity": 0.62},
-            {"text": "HR has already synthesized an automated replacement clone that requires 30% less iced coffee.", "probability": 10, "absurdity": 0.84},
-            {"text": "The period at the end of the sentence is an encoded GPS beacon summoning auditors to repossess your swivel chair.", "probability": 4, "absurdity": 0.96},
+            {"text": "They were typing on their phone while navigating a revolving door and their thumbs simply gave up midway through typing a polite pleasantry.", "probability": 44, "absurdity": 0.14},
+            {"text": "They use standard punctuation because they belong to a demographic that perceives exclamation points as legally binding promises of eternal friendship.", "probability": 26, "absurdity": 0.36},
+            {"text": "They spent 11 minutes debating between 'Best,' 'Warm regards,' and 'Thanks,', panicked over whether 'Best' sounded too sensual, and settled on an aggressive full stop out of pure executive fear.", "probability": 16, "absurdity": 0.62},
+            {"text": "They noticed you spent 23 minutes reorganizing color-coded tabs on a spreadsheet that hasn't been opened by another human being since November 2021, and this is their silent retaliation.", "probability": 10, "absurdity": 0.84},
+            {"text": "HR has calculated that enthusiastic workplace correspondence consumes 14% too much corporate bandwidth, so management is now legally mandated to communicate like 19th-century Victorian undertakers.", "probability": 4, "absurdity": 0.96},
         ]
-        rec = "Preemptively submit a resignation letter in Morse code, then hide under your desk in high-visibility apparel."
-        conf = "104% Workplace Anxiety"
+        rec = "Reply 'Understood.' with exactly two periods at the end. That is an illegal quantity of punctuation. It establishes chaotic neutral energy and buys you four business days of terrified silence."
+        conf = "98.7% Corporate Neurosis"
 
     elif any(k in q_lower for k in ["cat", "dog", "pet", "stare", "staring", "animal", "look"]):
         results = [
-            {"text": "A microscopic gnat was drifting 2 inches past your left ear.", "probability": 45, "absurdity": 0.10},
-            {"text": "They are evaluating whether your current emotional state warrants a slice of cheddar cheese.", "probability": 27, "absurdity": 0.32},
-            {"text": "They have detected an ancestral spirit standing behind you giving unsolicited fashion critiques.", "probability": 16, "absurdity": 0.60},
-            {"text": "They are transmitting daily telepathic surveillance dossiers to the interstellar mothership.", "probability": 8, "absurdity": 0.83},
-            {"text": "You are actually the pet in this dimensional simulation, and their quarterly performance review of you is due at 5 PM.", "probability": 4, "absurdity": 0.97},
+            {"text": "There is a microscopic piece of lint floating four inches in front of your forehead that you are too biologically inferior to perceive.", "probability": 45, "absurdity": 0.10},
+            {"text": "They are actively evaluating your weekly performance as a roommate and have noted three instances where you sneezed without apologizing to the room.", "probability": 27, "absurdity": 0.33},
+            {"text": "They are wondering why you have been wearing the exact same pair of fleece sweatpants for three consecutive days and whether this indicates a collapse in pack leadership.", "probability": 16, "absurdity": 0.60},
+            {"text": "They are convinced you are an unusually large, hairless cat with severe learning disabilities who somehow mastered the can opener, and they are silently pitying your condition.", "probability": 8, "absurdity": 0.83},
+            {"text": "They are conducting a high-level telepathic treaty with the refrigerator compressor, offering your leftover pasta in exchange for not howling at 4:15 AM.", "probability": 4, "absurdity": 0.97},
         ]
-        rec = "Bow respectfully, sacrifice a cube of mild cheddar, and avoid direct eye contact for 48 hours."
-        conf = "97.8% Interspecies Certainty"
+        rec = "Do not blink. Do not apologize. Slowly slide a single slice of mild cheddar across the floor and walk backward into another room while softly humming a national anthem."
+        conf = "99.8% Interspecies Judgment"
 
     else:
         words = re.findall(r'\b\w{4,}\b', query)
@@ -180,14 +180,14 @@ def generate_offline_fallback(query: str) -> Dict[str, Any]:
         kw2 = words[1].capitalize() if len(words) > 1 else "The Universe"
 
         results = [
-            {"text": f"The most boring truth applies: circumstances aligned by sheer random coincidence regarding {kw1.lower()}.", "probability": 41, "absurdity": 0.12},
-            {"text": f"Someone observed a micro-hesitation regarding {kw1.lower()} and is cautiously hedging.", "probability": 27, "absurdity": 0.35},
-            {"text": f"Both parties entered a recursive loop of mutual second-guessing regarding {kw2.lower()}.", "probability": 18, "absurdity": 0.58},
-            {"text": f"A secretive shadow council decided today was the optimal date to stress-test your coping mechanisms.", "probability": 9, "absurdity": 0.82},
-            {"text": f"A localized spacetime anomaly swapped your timeline with one where {kw1.lower()} dictates quantum physics.", "probability": 5, "absurdity": 0.96},
+            {"text": f"The most boring truth applies: circumstances regarding {kw1.lower()} aligned by mundane coincidence, but your brain chose to interpret it as a targeted personal insult.", "probability": 41, "absurdity": 0.12},
+            {"text": f"Someone involved with {kw1.lower()} drafted an honest reply, realized it required 4% more emotional effort than they possessed, and decided to let awkward silence do the heavy lifting.", "probability": 27, "absurdity": 0.35},
+            {"text": f"Both parties entered a recursive loop of polite second-guessing regarding {kw2.lower()}, each waiting for the other to break protocol so they can claim moral high ground.", "probability": 18, "absurdity": 0.58},
+            {"text": f"An intensely specific municipal bylaw from 1984 technically prohibits any straightforward resolution to {kw1.lower()}, and someone is quietly enforcing it out of sheer spite.", "probability": 9, "absurdity": 0.82},
+            {"text": f"A localized committee of mildly inconvenienced acquaintances concluded that leaving {kw1.lower()} unresolved was 37% more entertaining than giving you closure.", "probability": 5, "absurdity": 0.96},
         ]
-        rec = f"Burn all digital receipts, delete system cache, and speak solely in ancient riddles regarding {kw1.lower()}."
-        conf = "99.1% Unearned Certainty"
+        rec = f"DO NOTHING. Mention '{kw1.lower()}' to a passing pigeon, delete your browser cache, and pretend you have moved to an undisclosed coastal village."
+        conf = "102% Clinically Overthought"
 
     return {
         "results": results,

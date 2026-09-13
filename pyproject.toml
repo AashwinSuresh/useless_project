@@ -1,0 +1,8 @@
+[project]
+name = "useless-project"
+version = "2.0.0"
+description = "The Internet's Most Unnecessary Search Engine"
+requires-python = ">=3.9"
+
+[tool.vercel]
+entrypoint = "backend.app.main:app"

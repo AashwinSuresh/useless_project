@@ -77,15 +77,15 @@ export const searchEngineAPI = {
     return {
       query: query,
       results: [
-        { rank: 1, tier: 1, title: "Mundane Reality", text: "They were briefly distracted by an ordinary, boring circumstance with zero hidden motives.", probability: 41, absurdity: 0.12 },
-        { rank: 2, tier: 2, title: "Mild Paranoia", text: "They noticed a micro-hesitation in your delivery and decided to hedge defensively.", probability: 28, absurdity: 0.35 },
-        { rank: 3, tier: 3, title: "Overanalyzed Vortex", text: "Both parties entered a recursive loop of mutual second-guessing and hyper-polite avoidance.", probability: 18, absurdity: 0.58 },
-        { rank: 4, tier: 4, title: "Conspiracy Grade", text: "A clandestine focus group is currently logging your psychological micro-reactions.", probability: 9, absurdity: 0.81 },
-        { rank: 5, tier: 5, title: "Multiverse Catastrophe", text: "A micro-rift in spacetime swapped your reality with one where this question controls quantum gravity.", probability: 4, absurdity: 0.96 }
+        { rank: 1, tier: 1, title: "Mundane Reality", text: "They were holding two lukewarm coffees and a grocery bag with a snapped handle, typed using only their chin, and immediately forgot you exist.", probability: 41, absurdity: 0.12 },
+        { rank: 2, tier: 2, title: "Mild Paranoia", text: "They drafted a warm 3-sentence reply, noticed it contained an exclamation mark, felt sickeningly vulnerable, deleted everything, and sent a single monosyllable to re-establish emotional dominance.", probability: 28, absurdity: 0.35 },
+        { rank: 3, tier: 3, title: "The Overthought Spiral", text: "They read a LinkedIn article in 2017 about 'executive presence' and have spent the last seven years slowly incinerating their personal relationships one stone-cold reply at a time.", probability: 18, absurdity: 0.58 },
+        { rank: 4, tier: 4, title: "Suspiciously Specific Plot", text: "They are auditioning for the role of a disillusioned Swedish detective in a bleak Nordic noir series and are method-acting emotional detachment across all incoming text messages.", probability: 9, absurdity: 0.81 },
+        { rank: 5, tier: 5, title: "Completely Unhinged", text: "Their phone was momentarily commandeered by an eccentric raccoon that lives behind their garage and only knows how to accept invitations to social gatherings it has no intention of attending.", probability: 4, absurdity: 0.96 }
       ],
-      recommendation: "DO NOTHING. (Or speak exclusively in ancient riddles for the next 72 hours).",
-      confidence: "99.2% Unearned Certainty",
-      uselessness_score: 88,
+      recommendation: "DO NOTHING. In fact, do less than nothing. Leave your phone face-down on a wooden coaster, stare blankly at a floor lamp for 42 minutes, and let the awkwardness ripen into a fine vintage.",
+      confidence: "104% Unearned Certainty",
+      uselessness_score: 93,
       engine: "Autonomous Deduction Matrix"
     };
   }
