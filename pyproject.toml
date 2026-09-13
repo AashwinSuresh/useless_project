@@ -2,7 +2,15 @@
 name = "useless-project"
 version = "2.0.0"
 description = "The Internet's Most Unnecessary Search Engine"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.22.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "google-genai>=0.1.0",
+    "httpx>=0.24.0",
+]
 
 [tool.vercel]
 entrypoint = "backend.app.main:app"

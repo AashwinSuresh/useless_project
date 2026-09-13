@@ -40,8 +40,12 @@ app.add_middleware(
 # Include Routers
 app.include_router(search_router)
 
-# Resolve Frontend Root and Assets
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+# Resolve Frontend Root and Assets safely across local and Vercel serverless environments
+root_candidates = [
+    Path(__file__).resolve().parent.parent.parent,
+    Path.cwd(),
+]
+PROJECT_ROOT = next((p for p in root_candidates if (p / "frontend").is_dir()), root_candidates[0])
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
 LEGACY_INDEX = PROJECT_ROOT / "index.html"
 
