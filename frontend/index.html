@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Internet's Most Unnecessary Search Engine 🎯 | Overthink Everything</title>
+  <meta name="description" content="Overthinking innocent everyday questions with 99.8% unearned certainty. An algorithmic monument to unnecessary human doubt." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo-group" id="logoLink" title="Reset Search Engine">
+      <div class="radar-icon">
+        <div class="radar-sweep"></div>
+      </div>
+      <div>
+        <span class="logo-text">UNNECESSARY SEARCH</span>
+        <span class="badge-tag">ARCHIVE INDEX</span>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span>STATUS: QUESTIONABLE</span>
+      </div>
+      <button class="btn-icon" id="soundToggleBtn" aria-label="Toggle Sound Effects" title="Toggle Synthesizer Feedback">
+        <span id="soundIcon">🔊</span>
+        <span id="soundStatus">SFX ON</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Experience -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="heroSection">
+      <div class="hero-pill">
+        <span>⚡</span>
+        <span>HYPER-SPECULATIVE OVERTHINKING MATRIX</span>
+      </div>
+      <h1 class="hero-title">
+        The Internet's Most <span class="gradient">Unnecessary</span> Search Engine
+      </h1>
+      <p class="hero-subtitle">
+        Enter an innocent question people love to overthink. Our deduction engine generates five increasingly unhinged explanations, normalized probabilities, and an unnecessarily confident recommendation.
+      </p>
+    </section>
+
+    <!-- Search Box -->
+    <div class="search-wrapper">
+      <div class="search-box">
+        <span class="search-icon-symbol">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="e.g., Why did my friend say okay?" 
+          maxlength="300"
+          autocomplete="off"
+          spellcheck="false"
+          autofocus
+        />
+        <div class="search-controls">
+          <button type="button" class="btn-icon" id="randomQueryBtn" title="Load a random overthought dilemma">
+            <span>🎲</span>
+            <span>Random</span>
+          </button>
+          <button type="button" class="btn-search" id="searchSubmitBtn">
+            <span>Analyze</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+      <div class="search-meta-bar">
+        <span id="charCount">0/300 chars</span>
+        <span>Press <kbd style="background:rgba(255,255,255,0.08);padding:1px 5px;border-radius:4px;">Enter</kbd> to search, <kbd style="background:rgba(255,255,255,0.08);padding:1px 5px;border-radius:4px;">/</kbd> to focus</span>
+      </div>
+    </div>
+
+    <!-- Suggestion Chips -->
+    <div class="suggestions-wrap" id="suggestionsContainer">
+      <span class="suggestions-title">Frequently Overanalyzed Dilemmas:</span>
+      <div class="chips-row">
+        <button class="chip" data-query="Why did my friend say 'k'?">"Why did my friend say 'k'?"</button>
+        <button class="chip" data-query="Why is my manager using periods in Slack?">"Why is my manager using periods in Slack?"</button>
+        <button class="chip" data-query="Why did someone wave when I wasn't looking?">"Why did someone wave when I wasn't looking?"</button>
+        <button class="chip" data-query="Why is my cat staring intently at the ceiling?">"Why is my cat staring at the ceiling?"</button>
+        <button class="chip" data-query="Why was I left on read for 43 minutes?">"Why was I left on read for 43 minutes?"</button>
+      </div>
+    </div>
+
+    <!-- Loading Sequence -->
+    <div class="loading-box" id="loadingSection">
+      <div class="spinner-orbit"></div>
+      <h2 class="loading-title" id="loadingStatusText">Scanning Interpersonal Subtext...</h2>
+      <p class="loading-subtext" id="loadingSubtext">Calibrating paranoia matrix across alternate timelines...</p>
+      <div class="loading-progress-track">
+        <div class="loading-progress-bar" id="loadingProgressBar"></div>
+      </div>
+    </div>
+
+    <!-- Results Dossier -->
+    <section class="results-section" id="resultsSection">
+      <!-- Dossier Metadata -->
+      <div class="dossier-header-bar">
+        <div>
+          <span>SUBJECT: </span>
+          <span class="dossier-query" id="dossierQueryDisplay">"Why did my friend say okay?"</span>
+        </div>
+        <div style="display:flex;gap:0.6rem;align-items:center;">
+          <span class="dossier-engine-pill" id="dossierEnginePill">PROTOCOL: DECLASSIFIED</span>
+          <span class="dossier-engine-pill" id="dossierProbabilitySum" style="color:var(--accent-amber);background:rgba(245,158,11,0.12);border-color:rgba(245,158,11,0.25);">Total: 100%</span>
+        </div>
+      </div>
+
+      <!-- Possibilities List (Cards) -->
+      <div class="possibilities-list" id="possibilitiesList">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Recommendation & Uselessness Score -->
+      <div class="summary-grid">
+        <div class="recommendation-box">
+          <div>
+            <div class="rec-label">
+              <span>⚡</span>
+              <span>RECOMMENDED UNNECESSARY ACTION</span>
+            </div>
+            <div class="rec-value" id="actionValue">DO NOTHING.</div>
+          </div>
+          <div class="rec-subtext">
+            <span>Calculated Confidence: </span>
+            <strong id="confidenceValue" style="color:#fff;">99.4% Suspiciously High</strong>
+          </div>
+        </div>
+
+        <div class="score-card">
+          <div class="score-label">USELESSNESS SCORE</div>
+          <div class="score-value" id="scoreValue">87%</div>
+          <div class="score-badge" id="scoreBadge">PEAK FUTILITY INDEX</div>
+        </div>
+      </div>
+
+      <!-- Actions Bottom Row -->
+      <div class="actions-row">
+        <button class="btn-secondary" id="copyDossierBtn">
+          <span>📋</span>
+          <span>Copy Declassified Dossier</span>
+        </button>
+        <button class="btn-secondary" id="resetBtn">
+          <span>🔄</span>
+          <span>Overthink Another Question</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      The Internet's Most Unnecessary Search Engine &bull; An algorithmic monument to human overthinking
+      &bull; Intentionally useless, mathematically normalized.
+    </p>
+  </footer>
+
+  <!-- Application Logic -->
+  <script type="module">
+    import { searchEngineAPI } from '/src/services/api.js';
+
+    // State
+    let currentDossier = null;
+    let soundEnabled = true;
+
+    // DOM Elements
+    const searchInput = document.getElementById('searchInput');
+    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+    const randomQueryBtn = document.getElementById('randomQueryBtn');
+    const charCount = document.getElementById('charCount');
+    const suggestionsContainer = document.getElementById('suggestionsContainer');
+    const heroSection = document.getElementById('heroSection');
+    const loadingSection = document.getElementById('loadingSection');
+    const loadingStatusText = document.getElementById('loadingStatusText');
+    const loadingSubtext = document.getElementById('loadingSubtext');
+    const loadingProgressBar = document.getElementById('loadingProgressBar');
+    const resultsSection = document.getElementById('resultsSection');
+    const possibilitiesList = document.getElementById('possibilitiesList');
+    const dossierQueryDisplay = document.getElementById('dossierQueryDisplay');
+    const dossierEnginePill = document.getElementById('dossierEnginePill');
+    const dossierProbabilitySum = document.getElementById('dossierProbabilitySum');
+    const actionValue = document.getElementById('actionValue');
+    const confidenceValue = document.getElementById('confidenceValue');
+    const scoreValue = document.getElementById('scoreValue');
+    const copyDossierBtn = document.getElementById('copyDossierBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const logoLink = document.getElementById('logoLink');
+    const toast = document.getElementById('toast');
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    const soundIcon = document.getElementById('soundIcon');
+    const soundStatus = document.getElementById('soundStatus');
+
+    const RANDOM_QUERIES = [
+      "Why did my friend say 'k' instead of 'ok'?",
+      "Why is my boss using periods at the end of every sentence?",
+      "Why did the barista give me two napkins instead of one?",
+      "Why is my cat looking intensely at the empty corner?",
+      "Why did someone laugh 1.5 seconds after everyone else stopped?",
+      "Why did my coworker say 'per my previous email' in all lowercase?",
+      "Why did my phone buzz with zero notifications?",
+      "Why did they wave when I clearly wasn't looking at them?",
+      "Why did the delivery driver ring the doorbell twice?",
+      "Why did my internet disconnect right when I was winning the argument?"
+    ];
+
+    const LOADING_STEPS = [
+      { text: "Scanning Interpersonal Subtext...", sub: "Extracting hidden motives and micro-hesitations..." },
+      { text: "Consulting Paranoia Oracle...", sub: "Simulating 14,000 alternate social timelines with zero verified evidence..." },
+      { text: "Normalizing Comedic Probabilities...", sub: "Enforcing strict 100% mathematical uselessness..." },
+      { text: "Drafting Unnecessary Recommendation...", sub: "Synthesizing suspiciously confident guidance..." }
+    ];
+
+    // Audio Feedback (Web Audio API Synthesizer)
+    let audioCtx = null;
+    function playBeep(freq, type = 'sine', duration = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (_) {}
+    }
+
+    function playSuccessChime() {
+      if (!soundEnabled) return;
+      playBeep(523.25, 'triangle', 0.1);
+      setTimeout(() => playBeep(659.25, 'triangle', 0.1), 80);
+      setTimeout(() => playBeep(783.99, 'triangle', 0.18), 160);
+    }
+
+    // Toggle Sound
+    soundToggleBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      soundStatus.textContent = soundEnabled ? 'SFX ON' : 'SFX OFF';
+      soundIcon.textContent = soundEnabled ? '🔊' : '🔇';
+      if (soundEnabled) playBeep(600, 'sine', 0.1);
+    });
+
+    // Character counter
+    searchInput.addEventListener('input', () => {
+      charCount.textContent = `${searchInput.value.length}/300 chars`;
+    });
+
+    // Keyboard shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+      if (e.key === 'Enter' && document.activeElement === searchInput) {
+        triggerSearch(searchInput.value);
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.blur();
+      }
+    });
+
+    // Suggestion Chips
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        playBeep(480, 'sine', 0.05);
+        const query = chip.getAttribute('data-query');
+        searchInput.value = query;
+        charCount.textContent = `${query.length}/300 chars`;
+        triggerSearch(query);
+      });
+    });
+
+    // Random Query
+    randomQueryBtn.addEventListener('click', () => {
+      playBeep(540, 'triangle', 0.07);
+      const randomQ = RANDOM_QUERIES[Math.floor(Math.random() * RANDOM_QUERIES.length)];
+      searchInput.value = randomQ;
+      charCount.textContent = `${randomQ.length}/300 chars`;
+      searchInput.focus();
+    });
+
+    // Submit Button
+    searchSubmitBtn.addEventListener('click', () => {
+      triggerSearch(searchInput.value);
+    });
+
+    // Reset Buttons
+    logoLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetToSearch();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      playBeep(400, 'sine', 0.06);
+      resetToSearch();
+    });
+
+    function resetToSearch() {
+      resultsSection.style.display = 'none';
+      loadingSection.style.display = 'none';
+      heroSection.style.display = 'block';
+      suggestionsContainer.style.display = 'flex';
+      searchInput.focus();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // Copy to clipboard
+    copyDossierBtn.addEventListener('click', () => {
+      if (!currentDossier) return;
+      playBeep(700, 'sine', 0.08);
+
+      let text = `🚨 THE INTERNET'S MOST UNNECESSARY SEARCH ENGINE 🎯\n`;
+      text += `Query: "${currentDossier.query}"\n`;
+      text += `Calculated Futility: ${currentDossier.uselessness_score || 88}%\n`;
+      text += `Unearned Confidence: ${currentDossier.confidence}\n\n`;
+      text += `ESCALATING PARANOIA BREAKDOWN:\n`;
+      (currentDossier.results || currentDossier.possibilities).forEach(p => {
+        text += `[Tier ${p.tier || p.rank}: ${p.title || 'Analysis'}] (${p.probability}%)\n-> ${p.text}\n\n`;
+      });
+      text += `RECOMMENDED UNNECESSARY ACTION:\n${currentDossier.recommendation || currentDossier.recommended_action}\n`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('📋 Declassified Dossier copied to clipboard!');
+      }).catch(() => {
+        showToast('Dossier copied!');
+      });
+    });
+
+    // Main Execution Flow
+    async function triggerSearch(query) {
+      const cleanQuery = query.trim();
+      if (!cleanQuery) {
+        searchInput.focus();
+        showToast('Please type an everyday question to overthink!');
+        return;
+      }
+
+      playBeep(420, 'sine', 0.06);
+
+      // Transition to loading
+      resultsSection.style.display = 'none';
+      suggestionsContainer.style.display = 'none';
+      loadingSection.style.display = 'flex';
+      loadingProgressBar.style.width = '12%';
+      searchSubmitBtn.disabled = true;
+
+      // Dramatic loading sequence
+      let stepIndex = 0;
+      loadingStatusText.textContent = LOADING_STEPS[0].text;
+      loadingSubtext.textContent = LOADING_STEPS[0].sub;
+
+      const interval = setInterval(() => {
+        stepIndex++;
+        if (stepIndex < LOADING_STEPS.length) {
+          loadingStatusText.textContent = LOADING_STEPS[stepIndex].text;
+          loadingSubtext.textContent = LOADING_STEPS[stepIndex].sub;
+          loadingProgressBar.style.width = `${(stepIndex + 1) * 24}%`;
+          playBeep(320 + (stepIndex * 70), 'sine', 0.04);
+        }
+      }, 550);
+
+      try {
+        const responseData = await searchEngineAPI.search(cleanQuery);
+        clearInterval(interval);
+        loadingProgressBar.style.width = '100%';
+
+        setTimeout(() => {
+          loadingSection.style.display = 'none';
+          searchSubmitBtn.disabled = false;
+          renderDossier(responseData);
+          playSuccessChime();
+        }, 350);
+
+      } catch (err) {
+        clearInterval(interval);
+        console.warn("Dossier compilation notice, engaging fallback:", err);
+        const fallbackData = searchEngineAPI.generateMockResponse(cleanQuery);
+        
+        loadingProgressBar.style.width = '100%';
+        setTimeout(() => {
+          loadingSection.style.display = 'none';
+          searchSubmitBtn.disabled = false;
+          renderDossier(fallbackData);
+          playSuccessChime();
+          showToast('Dossier synthesized from historical overthinking archive.');
+        }, 350);
+      }
+    }
+
+    // Render results
+    function renderDossier(data) {
+      currentDossier = data;
+      dossierQueryDisplay.textContent = `"${data.query}"`;
+      dossierEnginePill.textContent = 'PROTOCOL: DECLASSIFIED';
+      actionValue.textContent = data.recommendation || data.recommended_action || "DO NOTHING.";
+      confidenceValue.textContent = data.confidence || "99.4% Suspiciously High";
+      
+      const score = data.uselessness_score || 88;
+      scoreValue.textContent = `${score}%`;
+
+      const tierColors = [
+        'var(--tier-1)',
+        'var(--tier-2)',
+        'var(--tier-3)',
+        'var(--tier-4)',
+        'var(--tier-5)'
+      ];
+
+      const absurdityLabels = [
+        'Plausible (0.12)',
+        'Suspicious (0.35)',
+        'Overthought (0.58)',
+        'Conspiracy (0.81)',
+        'Quantum Rift (0.96)'
+      ];
+
+      const items = data.results || data.possibilities || [];
+      possibilitiesList.innerHTML = '';
+      let sumProb = 0;
+
+      items.forEach((p, idx) => {
+        sumProb += p.probability;
+        const card = document.createElement('div');
+        card.className = 'possibility-card';
+        card.style.setProperty('--tier-color', tierColors[idx % 5]);
+
+        const absScore = p.absurdity !== undefined ? p.absurdity : (0.15 + (idx * 0.2));
+        const absTag = absurdityLabels[idx] || `Absurdity: ${absScore}`;
+
+        card.innerHTML = `
+          <div class="card-top-row">
+            <div class="tier-badge-group">
+              <span class="tier-number">RANK #${p.rank || (idx + 1)}</span>
+              <span class="tier-title">${p.title || `Level ${idx + 1}`}</span>
+              <span class="absurdity-badge">${absTag}</span>
+            </div>
+            <div class="probability-display">
+              <span class="probability-number">${p.probability}</span>
+              <span class="probability-unit">%</span>
+            </div>
+          </div>
+          <p class="possibility-text">${escapeHtml(p.text)}</p>
+          <div class="meter-track">
+            <div class="meter-fill" id="meterFill_${idx}"></div>
+          </div>
+        `;
+        possibilitiesList.appendChild(card);
+      });
+
+      dossierProbabilitySum.textContent = `Total: ${sumProb}%`;
+
+      // Show container & smooth scroll
+      resultsSection.style.display = 'flex';
+      resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Animate progress meters
+      setTimeout(() => {
+        items.forEach((p, idx) => {
+          const fill = document.getElementById(`meterFill_${idx}`);
+          if (fill) fill.style.width = `${Math.min(100, p.probability * 1.8)}%`;
+        });
+      }, 100);
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[m]);
+    }
+  </script>
+</body>
+</html>

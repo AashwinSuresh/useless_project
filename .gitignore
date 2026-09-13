@@ -1,4 +1,18 @@
+# Environment files
 .env
+.env.local
+.env.*.local
+
+# Python virtual env & artifacts
 .venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.log
+
+# Frontend & build artifacts
+node_modules/
+dist/
+.DS_Store
+Thumbs.db

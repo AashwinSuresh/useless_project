@@ -1,5 +1,6 @@
 import os
 import sys
+from pathlib import Path
 from dotenv import load_dotenv
 
 # Try importing Google GenAI SDK
@@ -31,17 +32,24 @@ def test_gemini_api():
     print("GEMINI API TEST")
     print("====================================")
 
-    # 1. Check .env file existence
-    env_path = ".env"
-    if not os.path.exists(env_path):
-        if os.path.exists("useless_project/.env"):
-            env_path = "useless_project/.env"
-        else:
-            print("ERROR: .env file was not found.")
-            print("====================================")
-            print("FAILED")
-            print("====================================")
-            return False
+    # 1. Search for .env
+    candidates = [
+        Path.cwd() / ".env",
+        Path(__file__).resolve().parent.parent / ".env",
+        Path(__file__).resolve().parent / ".env",
+    ]
+    env_path = None
+    for p in candidates:
+        if p.is_file():
+            env_path = str(p)
+            break
+
+    if not env_path:
+        print("ERROR: .env file was not found.")
+        print("====================================")
+        print("FAILED")
+        print("====================================")
+        return False
 
     print(f"Detected .env file: YES ({env_path})")
 
@@ -95,7 +103,7 @@ def test_gemini_api():
             print("====================================")
             return True
         except APIError as e:
-            if "503" in str(e) or "404" in str(e) or "UNAVAILABLE" in str(e) or "NOT_FOUND" in str(e):
+            if any(k in str(e) for k in ["503", "404", "UNAVAILABLE", "NOT_FOUND"]):
                 print(f"Model '{model_name}' temporary issue/not found, trying fallback...")
                 continue
             print("\n====================================")
